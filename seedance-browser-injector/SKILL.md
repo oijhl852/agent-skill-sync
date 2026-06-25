@@ -202,37 +202,26 @@ Before injecting, present the shot breakdown in a table and ask user to confirm:
 4. Use `evaluate_script` to set `editor.innerHTML` and dispatch `input`/`change` events
 5. Take a snapshot to verify all content rendered correctly
 
-**Injection format rules (EP8 实战验证):**
-
-- **Line breaks:** Use `<br>` NOT `<p>` tags. `editor.innerHTML = lines.join('<br>')` — `<p>` causes extra spacing and content gets merged into gibberish when the panel re-parses.
-- **Redundant lines:** DO NOT inject `【画幅】竖屏 9:16` or standalone `15秒，9:16竖屏` — the panel's own selectors already handle aspect ratio and duration.
-- **Chip syntax:** Use `[角色名]` placeholders in the storyboard file (e.g. `[傅临琛-贵族常服]`), replace with native chip HTML during injection.
-- **Chip extraction:** The fastest workflow is: user lists needed chips → user `@` mentions them in editor → script extracts all chip HTML via `evaluate_script` → build injection. Do NOT try to reverse-engineer Vue component trees or API calls.
-
 Injection script template:
 ```javascript
 const editor = document.querySelector('[contenteditable="true"]');
+const chip = (type, id, name, url, assetId) => 
+  `<span class="mention-chip" contenteditable="false" 
+    data-id="${type}:${id}" data-name="${name}" 
+    data-role-label="" data-desc="" data-remark="" 
+    data-label="${name}"
+    data-avatar-bg="linear-gradient(135deg, #9077ff, #5965ff)" 
+    data-url="${url}" data-asset-id="${assetId}" 
+    data-mention-type="" data-asset-type="image" 
+    data-source-kind="${type}">
+    <span class="mention-chip-avatar">
+      <img class="mention-chip-avatar-image" src="${url}" alt="${name}">
+    </span>
+    <span class="mention-chip-label">${name}</span>
+  </span>`;
 
-// ... define chip HTML variables from extracted data ...
-
-const lines = [
-  '写实风格古装正剧，极致画质，高对比度光影，电影运镜',
-  '【镜头】ARRI MINI拍摄，中焦段85mm，大光圈f/1.2浅景深，电影写实人像',
-  '【环境】' + sceneChip + ' 内部楼梯口，冬日白天',
-  // ... more tech tags ...
-  '【场景】' + sceneChip,
-  '【角色】' + roleChip1 + ' ' + roleChip2 + ' ' + roleChip3,
-  '【站位】一句初始站位描述。',
-  '',
-  '0-3s：【标题】景别——具体画面+动作+对话',
-  roleChip1 + audioChip1 + '（情绪）：台词内容。',
-  '△ 动作描述。'
-];
-
-editor.innerHTML = lines.join('<br>');
-editor.dispatchEvent(new Event('input', { bubbles: true }));
-editor.dispatchEvent(new Event('change', { bubbles: true }));
-```
+const html = [/* framework text + chip references */].join('');
+editor.innerHTML = html;
 editor.dispatchEvent(new Event('input', { bubbles: true }));
 editor.dispatchEvent(new Event('change', { bubbles: true }));
 ```
