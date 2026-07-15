@@ -5,18 +5,18 @@
 /seedance-2-0-prompts-*.csv
 
 # ZeroLu/awesome-seedance was cloned into the existing skill directory.
-/awesome-seedance/.git/
-/awesome-seedance/.github/
-/awesome-seedance/assets/
-/awesome-seedance/prompts/
-/awesome-seedance/scripts/update_last_updated.sh
-/awesome-seedance/videos/
-/awesome-seedance/LICENSE
-/awesome-seedance/README-de.md
-/awesome-seedance/README-es.md
-/awesome-seedance/README-fr.md
-/awesome-seedance/README-ja.md
-/awesome-seedance/README-zh.md
+/seedance-storyboard/.git/
+/seedance-storyboard/.github/
+/seedance-storyboard/assets/
+/seedance-storyboard/prompts/
+/seedance-storyboard/scripts/update_last_updated.sh
+/seedance-storyboard/videos/
+/seedance-storyboard/LICENSE
+/seedance-storyboard/README-de.md
+/seedance-storyboard/README-es.md
+/seedance-storyboard/README-fr.md
+/seedance-storyboard/README-ja.md
+/seedance-storyboard/README-zh.md
 
 # Raw upstream skill retained locally for comparison, not loaded as instructions.
-/awesome-seedance/references/subskills/sd-prompt-library/references/songguoxs-seedance-prompt-skill.md
+/seedance-storyboard/references/subskills/sd-prompt-library/references/songguoxs-seedance-prompt-skill.md

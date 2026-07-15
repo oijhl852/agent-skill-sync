@@ -1,10 +1,31 @@
 # 更新日志
 
-本文件根据仓库 Git 提交记录整理，用来说明 Awesome Seedance 为什么变化、每个版本解决了什么问题，以及整个 skill 如何从单文件规则逐步演进为可安装的模块化工作流。
+本文件根据仓库 Git 提交记录整理，用来说明 Seedance Storyboard 为什么变化、每个版本解决了什么问题，以及整个 skill 如何从单文件规则逐步演进为可安装的模块化工作流。
 
 日期采用提交日期。没有独立 Git 证据的版本号不补写、不推测。
 
-## 未发布
+## 3.0.0 - 2026-07-15
+
+### 迭代重点
+
+建立独立、清晰且可搜索的英文名称，避免 `awesome-*` 被误解为资源清单，并与引用来源中的同名仓库区分。
+
+### 不兼容变化
+
+- Skill 名称从 `awesome-seedance` 改为 `seedance-storyboard`。
+- 安装目录从 `awesome-seedance/` 改为 `seedance-storyboard/`。
+- GitHub 仓库从 `agent-skill-sync` 改为 `seedance-storyboard`。
+- 默认调用名称改为 `$seedance-storyboard`。
+
+### 统一
+
+- 对外品牌、skill metadata 和界面名称统一为 `Seedance Storyboard`。
+- 主 skill 和 13 个子模块的作者统一为 `Takis`。
+- README、脚本示例、仓库链接和校验规则全部更新为新名称。
+
+### 迁移
+
+已经安装旧版的用户应移除旧的 `awesome-seedance` 安装目录，再安装新的 `seedance-storyboard` 目录，避免两个名称同时触发。
 
 ### 文档
 
@@ -14,7 +35,7 @@
 
 ## 2.4.0 - 2026-07-15
 
-对应提交：[3100dbb](https://github.com/oijhl852/agent-skill-sync/commit/3100dbb837fda2b51de1d09e81d4159dc6fb5e06)
+对应提交：[3100dbb](https://github.com/oijhl852/seedance-storyboard/commit/3100dbb837fda2b51de1d09e81d4159dc6fb5e06)
 
 ### 迭代重点
 
@@ -42,7 +63,7 @@
 
 ## 2.3.0 - 2026-07-15
 
-对应提交：[ca02aa1](https://github.com/oijhl852/agent-skill-sync/commit/ca02aa1)
+对应提交：[ca02aa1](https://github.com/oijhl852/seedance-storyboard/commit/ca02aa1)
 
 ### 迭代重点
 
@@ -59,7 +80,7 @@
 
 ## 2.1.0 - 2026-07-15
 
-对应提交：[299a209](https://github.com/oijhl852/agent-skill-sync/commit/299a209)
+对应提交：[299a209](https://github.com/oijhl852/seedance-storyboard/commit/299a209)
 
 ### 迭代重点
 
@@ -74,7 +95,7 @@
 
 ## 2.0.0 - 2026-07-01
 
-对应提交：[5171838](https://github.com/oijhl852/agent-skill-sync/commit/5171838)
+对应提交：[5171838](https://github.com/oijhl852/seedance-storyboard/commit/5171838)
 
 ### 迭代重点
 
@@ -89,7 +110,7 @@
 
 ## 早期实战版本 - 2026-06-25
 
-对应提交：[f575980](https://github.com/oijhl852/agent-skill-sync/commit/f575980)
+对应提交：[f575980](https://github.com/oijhl852/seedance-storyboard/commit/f575980)
 
 ### 迭代重点
 
@@ -107,4 +128,4 @@
 
 - Git 历史中没有独立的 `v2.2.0` 发布提交，因此本日志不推测其内容。
 - `b8bb8a3` 是远程 README 修改的合并提交，不作为功能版本单独记录。
-- README 的后续文档完善提交 [f512216](https://github.com/oijhl852/agent-skill-sync/commit/f512216) 没有改变 skill 行为，因此仍归入 `v2.4.0` 发布周期。
+- README 的后续文档完善提交 [f512216](https://github.com/oijhl852/seedance-storyboard/commit/f512216) 没有改变 skill 行为，因此仍归入 `v2.4.0` 发布周期。
