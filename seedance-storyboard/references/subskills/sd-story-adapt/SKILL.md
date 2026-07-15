@@ -1,10 +1,11 @@
 ---
 name: sd-story-adapt
-version: "1.0.0"
-last_updated: "2026-07-15"
-author: "Takis"
 description: 故事→剧本改编 — 三幕式结构、短剧公式、人物小传。由 seedance-storyboard 主 skill 调用。
-repository: https://github.com/oijhl852/seedance-storyboard
+metadata:
+  version: "1.0.1"
+  last_updated: "2026-07-16"
+  author: "Takis"
+  repository: https://github.com/oijhl852/seedance-storyboard
 ---
 
 # sd-story-adapt — 故事改编

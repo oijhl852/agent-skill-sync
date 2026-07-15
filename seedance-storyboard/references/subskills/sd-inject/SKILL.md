@@ -1,10 +1,11 @@
 ---
 name: sd-inject
-version: "1.1.0"
-last_updated: "2026-07-15"
-author: "Takis"
 description: API 注入引擎 — 凭证提取、segment/list、segment/update、注入验证。由 seedance-storyboard 主 skill 调用。
-repository: https://github.com/oijhl852/seedance-storyboard
+metadata:
+  version: "1.1.1"
+  last_updated: "2026-07-16"
+  author: "Takis"
+  repository: https://github.com/oijhl852/seedance-storyboard
 ---
 
 # sd-inject — 注入引擎

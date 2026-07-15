@@ -1,10 +1,11 @@
 ---
 name: sd-panel
-version: "1.1.0"
-last_updated: "2026-07-15"
-author: "Takis"
 description: Seedance 浏览器面板连接 — Chrome DevTools MCP 连接、元素定位、工具可用性检测。由 seedance-storyboard 主 skill 调用。
-repository: https://github.com/oijhl852/seedance-storyboard
+metadata:
+  version: "1.1.1"
+  last_updated: "2026-07-16"
+  author: "Takis"
+  repository: https://github.com/oijhl852/seedance-storyboard
 ---
 
 # sd-panel — 面板连接

@@ -14,5 +14,8 @@
 重新拉取上游仓库后，可运行：
 
 ```powershell
-& "D:\素材\神奇妙妙工具\seedance-storyboard\seedance-storyboard\scripts\build-community-corpus.ps1"
+git clone https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts.git ".\awesome-seedance-2-prompts"
+& ".\seedance-storyboard\scripts\build-community-corpus.ps1"
 ```
+
+以上命令从仓库根目录运行。上游仓库只作为本地构建输入，不提交到当前仓库。

@@ -1,10 +1,11 @@
 ---
 name: sd-prompt
-version: "1.2.0"
-last_updated: "2026-07-15"
-author: "Takis"
 description: Seedance 提示词组装 — 11个技术标签 + 角色资产引用，支持结构化格式/时间轴格式和16种模板。由 seedance-storyboard 主 skill 调用。
-repository: https://github.com/oijhl852/seedance-storyboard
+metadata:
+  version: "1.2.1"
+  last_updated: "2026-07-16"
+  author: "Takis"
+  repository: https://github.com/oijhl852/seedance-storyboard
 ---
 
 # sd-prompt — 提示词组装

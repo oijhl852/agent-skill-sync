@@ -9,6 +9,7 @@ $expectedChildren = @(
     'sd-story-adapt', 'sd-asset-guide', 'sd-prompt', 'sd-prompt-library',
     'sd-community', 'sd-quality', 'sd-panel', 'sd-chip', 'sd-inject'
 )
+$allowedTopLevelKeys = @('name', 'description', 'license', 'compatibility', 'metadata', 'allowed-tools')
 $subskillRoot = Join-Path $PackageRoot 'references\subskills'
 
 foreach ($name in $expectedChildren) {
@@ -40,13 +41,33 @@ if (Test-Path -LiteralPath (Join-Path $PackageRoot 'docs')) {
 
 foreach ($file in $skillFiles) {
     $text = Get-Content -LiteralPath $file.FullName -Raw
+    $frontmatterMatch = [regex]::Match($text, '\A---\s*\r?\n(?<yaml>.*?)\r?\n---', [System.Text.RegularExpressions.RegexOptions]::Singleline)
     $nameMatch = [regex]::Match($text, '(?m)^name:\s*["'']?([^"''\r\n]+)')
     $versionMatch = [regex]::Match($text, '(?m)^\s*version:\s*["'']?([^"''\r\n]+)')
     $dateMatch = [regex]::Match($text, '(?m)^\s*last_updated:\s*["'']?([^"''\r\n]+)')
+    $authorMatch = [regex]::Match($text, '(?m)^\s*author:\s*["'']?([^"''\r\n]+)')
+    $repositoryMatch = [regex]::Match($text, '(?m)^\s*repository:\s*["'']?([^"''\r\n]+)')
 
+    if (-not $frontmatterMatch.Success) { $errors.Add("Invalid frontmatter block: $($file.FullName)") }
     if (-not $nameMatch.Success) { $errors.Add("Missing name: $($file.FullName)") }
     if (-not $versionMatch.Success) { $errors.Add("Missing version: $($file.FullName)") }
     if (-not $dateMatch.Success) { $errors.Add("Missing last_updated: $($file.FullName)") }
+    if (-not $authorMatch.Success -or $authorMatch.Groups[1].Value.Trim() -ne 'Takis') {
+        $errors.Add("Unexpected author: $($file.FullName)")
+    }
+    if (-not $repositoryMatch.Success -or $repositoryMatch.Groups[1].Value.Trim() -ne 'https://github.com/oijhl852/seedance-storyboard') {
+        $errors.Add("Unexpected repository: $($file.FullName)")
+    }
+
+    if ($frontmatterMatch.Success) {
+        $topLevelKeys = @([regex]::Matches($frontmatterMatch.Groups['yaml'].Value, '(?m)^([A-Za-z0-9_-]+):') |
+            ForEach-Object { $_.Groups[1].Value })
+        foreach ($key in $topLevelKeys) {
+            if ($key -notin $allowedTopLevelKeys) {
+                $errors.Add("Unexpected top-level frontmatter key '$key': $($file.FullName)")
+            }
+        }
+    }
 
     if ($nameMatch.Success) {
         $name = $nameMatch.Groups[1].Value.Trim()
@@ -65,6 +86,9 @@ foreach ($file in $skillFiles) {
     }
     if ($text -match 'web_fetch|git push') {
         $errors.Add("Legacy network/push instruction: $($file.FullName)")
+    }
+    if ($text -match 'D:\\素材\\神奇妙妙工具') {
+        $errors.Add("Personal absolute path remains: $($file.FullName)")
     }
 }
 
@@ -87,8 +111,23 @@ if (-not (Test-Path -LiteralPath $fullCorpus)) {
     }
 }
 $corpusChunks = @(Get-ChildItem -LiteralPath (Join-Path $corpusRoot 'chunks') -Filter 'prompts-*.md' -File -ErrorAction SilentlyContinue)
-if ($corpusChunks.Count -lt 1) {
-    $errors.Add('No generated community corpus chunks found.')
+if ($corpusChunks.Count -ne 6) {
+    $errors.Add("Unexpected community preview chunk count: $($corpusChunks.Count)")
+}
+$previewCount = 0
+foreach ($chunk in $corpusChunks) {
+    $previewCount += @(Select-String -LiteralPath $chunk.FullName -Pattern '^##\s+\d{3}\.').Count
+}
+if ($previewCount -ne 106) {
+    $errors.Add("Unexpected community preview prompt count: $previewCount")
+}
+$indexRows = @(Select-String -LiteralPath (Join-Path $corpusRoot 'index.md') -Pattern '^\|\s*\d+\s*\|').Count
+if ($indexRows -ne 106) {
+    $errors.Add("Unexpected community preview index count: $indexRows")
+}
+
+if (-not (Test-Path -LiteralPath (Join-Path $PackageRoot 'THIRD_PARTY_NOTICES.md'))) {
+    $errors.Add('Missing third-party license and attribution notices.')
 }
 
 if ($errors.Count -gt 0) {

@@ -1,10 +1,11 @@
 ---
 name: sd-segment-split
-version: "1.0.0"
-last_updated: "2026-07-15"
-author: "Takis"
 description: 按戏剧节拍将剧本拆成15秒片段，含反模式检查。由 seedance-storyboard 主 skill 调用。
-repository: https://github.com/oijhl852/seedance-storyboard
+metadata:
+  version: "1.0.1"
+  last_updated: "2026-07-16"
+  author: "Takis"
+  repository: https://github.com/oijhl852/seedance-storyboard
 ---
 
 # sd-segment-split — 15秒拆段

@@ -57,7 +57,11 @@ if (-not [string]::IsNullOrWhiteSpace($Id)) {
 }
 
 if ($matches.Count -eq 0) {
-    Write-Output 'No matching community prompts found.'
+    if ($Format -eq 'json') {
+        Write-Output '[]'
+    } else {
+        Write-Output 'No matching community prompts found.'
+    }
     exit 0
 }
 

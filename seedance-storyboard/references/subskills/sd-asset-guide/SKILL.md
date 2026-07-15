@@ -1,10 +1,11 @@
 ---
 name: sd-asset-guide
-version: "1.1.0"
-last_updated: "2026-07-15"
-author: "Takis"
 description: 角色/场景/道具资产构建指引 — 四视图、AI出图提示词。由 seedance-storyboard 主 skill 调用。
-repository: https://github.com/oijhl852/seedance-storyboard
+metadata:
+  version: "1.1.1"
+  last_updated: "2026-07-16"
+  author: "Takis"
+  repository: https://github.com/oijhl852/seedance-storyboard
 ---
 
 # sd-asset-guide — 资产构建

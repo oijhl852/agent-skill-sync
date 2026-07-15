@@ -1,10 +1,11 @@
 ---
 name: sd-prompt-library
-version: "1.1.0"
-last_updated: "2026-07-15"
-author: "Takis"
 description: Seedance 精选案例库 — 8大类风格提示词模板，带视频效果参考。由 seedance-storyboard 主 skill 调用。
-repository: https://github.com/oijhl852/seedance-storyboard
+metadata:
+  version: "1.1.1"
+  last_updated: "2026-07-16"
+  author: "Takis"
+  repository: https://github.com/oijhl852/seedance-storyboard
 ---
 
 # sd-prompt-library — 案例库
@@ -13,7 +14,7 @@ repository: https://github.com/oijhl852/seedance-storyboard
 
 按风格分类的精选 Seedance 2.0 提示词案例，供参考和复用。
 
-（来源：ZeroLu/awesome-seedance，CC BY 4.0）
+（来源：ZeroLu/awesome-seedance，MIT License）
 
 本 skill 是参考库，不直接替用户选择风格。使用时先说明用户目标，再挑一个最接近的结构，不能整段照抄与原项目无关的角色、品牌或剧情。
 

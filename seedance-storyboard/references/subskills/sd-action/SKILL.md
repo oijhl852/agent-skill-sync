@@ -1,10 +1,11 @@
 ---
 name: sd-action
-version: "1.1.0"
-last_updated: "2026-07-15"
-author: "Takis"
 description: 动作/打斗/蒙太奇分镜 — 连续动作链写法。由 seedance-storyboard 主 skill 调用。
-repository: https://github.com/oijhl852/seedance-storyboard
+metadata:
+  version: "1.1.1"
+  last_updated: "2026-07-16"
+  author: "Takis"
+  repository: https://github.com/oijhl852/seedance-storyboard
 ---
 
 # sd-action — 动作分镜

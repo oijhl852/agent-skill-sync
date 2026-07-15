@@ -2,8 +2,8 @@
 name: seedance-storyboard
 description: Use when converting a Seedance script, dialogue scene, storyboard, story outline, or shot list into segmented prompts, or when coordinating prompt generation and panel injection.
 metadata:
-  version: "3.0.0"
-  last_updated: "2026-07-15"
+  version: "3.0.1"
+  last_updated: "2026-07-16"
   author: "Takis"
   repository: "https://github.com/oijhl852/seedance-storyboard"
 ---

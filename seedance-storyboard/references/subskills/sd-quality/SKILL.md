@@ -1,10 +1,11 @@
 ---
 name: sd-quality
-version: "1.2.0"
-last_updated: "2026-07-15"
-author: "Takis"
 description: 最终质量检查 — 保真/密度/约束/衔接。由 seedance-storyboard 主 skill 调用。
-repository: https://github.com/oijhl852/seedance-storyboard
+metadata:
+  version: "1.2.1"
+  last_updated: "2026-07-16"
+  author: "Takis"
+  repository: https://github.com/oijhl852/seedance-storyboard
 ---
 
 # sd-quality — 质量检查
@@ -16,7 +17,7 @@ repository: https://github.com/oijhl852/seedance-storyboard
 ## 检查清单
 
 ### 格式
-- [ ] 每个镜头以 `△` 开头
+- [ ] 分镜稿沿用剧本格式时，每个镜头以 `△` 开头；最终提示词采用时间轴式或结构化标签式时，遵循 `sd-prompt` 选定的格式，不强制添加 `△`
 - [ ] 运镜、景别写具体
 - [ ] 对白标注正确（os/vo/情绪不混用）
 

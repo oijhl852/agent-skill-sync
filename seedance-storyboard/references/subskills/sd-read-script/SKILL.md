@@ -1,10 +1,11 @@
 ---
 name: sd-read-script
-version: "1.1.0"
-last_updated: "2026-07-15"
-author: "Takis"
 description: 解析剧本格式、分场识别、提取角色/场景/台词/动作，建立保真表。由 seedance-storyboard 主 skill 调用。
-repository: https://github.com/oijhl852/seedance-storyboard
+metadata:
+  version: "1.1.1"
+  last_updated: "2026-07-16"
+  author: "Takis"
+  repository: https://github.com/oijhl852/seedance-storyboard
 ---
 
 # sd-read-script — 剧本读取
